@@ -4,6 +4,9 @@ cp /afs/cern.ch/work/b/ballest/public/phantom/phantom_1_2_8_nc1.tar.gz .
 tar -xzvf phantom_1_2_8_nc1.tar.gz
 cp setup.sh phantom_1_2_8_nc1/
 
+careful in submit.py: either change the phantom directory ore use the --base option
+careful in 
+
 step 1 (grid generation)
 ./submit.py  -t r_ew126_lvlv.in.TEMPLATE_step1 -c "e ve_ mu_ vm" -f r_ew126_lvlv -s 1
 step 2 (event production)
