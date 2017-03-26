@@ -1,0 +1,12 @@
+
+install in a CMSSW directory:
+cp /afs/cern.ch/work/b/ballest/public/phantom/phantom_1_2_8_nc1.tar.gz .
+tar -xzvf phantom_1_2_8_nc1.tar.gz
+cp setup.sh phantom_1_2_8_nc1/
+
+step 1 (grid generation)
+./submit.py  -t r_ew126_lvlv.in.TEMPLATE_step1 -c "e ve_ mu_ vm" -f r_ew126_lvlv -s 1
+step 2 (event production)
+./submit.py  -t r_ew126_lvlv.in.TEMPLATE_step2 -c "e ve_ mu_ vm" -f r_ew126_lvlv -s 2
+step 3 (cross section calculation)
+./submit.py  -t r_ew126_lvlv.in.TEMPLATE_step2 -c "e ve_ mu_ vm" -f r_ew126_lvlv -s 3

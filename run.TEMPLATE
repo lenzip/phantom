@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd BASE
+eval `scram runtime -sh`
+source /cvmfs/projects.cern.ch/intelsw/psxe/linux/all-setup.sh intel64
+cd -
+
+cd FOLDER
+if [ ! -f libLHAPDF.so.0 ]; then
+  ln -s  /cvmfs/cms.cern.ch/slc6_amd64_gcc530/external/lhapdf/6.1.6-ikhhed2/lib/libLHAPDF.so libLHAPDF.so.0
+fi
+export LD_LIBRARY_PATH=$PWD:$LD_LIBRARY_PATH
+rm *.dat
+echo $HOSTNAME
+touch running
+date
+unbuffer BASE/phantom.exe
+
+mv running finished
+date
